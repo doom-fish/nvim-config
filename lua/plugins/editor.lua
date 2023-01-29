@@ -6,20 +6,6 @@
 -- * override the configuration of LazyVim plugins
 return {
 
-  -- customize file explorer
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-      filesystem = {
-        follow_current_file = true, -- This will find and focus the file in the active buffer every
-        -- time the current file is changed while the tree is open.
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
-        hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-      },
-    },
-  },
-
   -- customize telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -38,10 +24,10 @@ return {
         layout_config = {
           vertical = {
             preview_cutoff = 0.2,
-            preview_height = 0.4
+            preview_height = 0.4,
           },
           height = 0.9,
-          width = 0.9
+          width = 0.9,
         },
         mappings = {
           i = {
@@ -53,7 +39,7 @@ return {
             end,
             ["<C-p>"] = function(...)
               return require("telescope.actions.layout").toggle_preview(...)
-            end
+            end,
           },
           n = {
             ["j"] = function(...)
@@ -70,15 +56,15 @@ return {
             end,
             ["<C-p>"] = function(...)
               return require("telescope.actions.layout").toggle_preview(...)
-            end
-          }
+            end,
+          },
         },
       },
       extensions = {
         project = {
           base_dirs = {
-            '~/Projects'
-          }
+            "~/Projects",
+          },
         },
         undo = {
           use_delta = true,
@@ -94,8 +80,8 @@ return {
       {
         "<leader>fp",
         "<CMD>Telescope project display_type=full<CR>",
-        desc = "Find project"
-      }
+        desc = "Find project",
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")
@@ -115,7 +101,7 @@ return {
         ["<leader>d"] = { name = "+debug", mode = { "n", "v" } },
         ["<leader>ct"] = { name = "+test" },
       })
-    end
+    end,
   },
 
   -- git blame
@@ -128,13 +114,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     event = "BufReadPre",
-    config = true
-  },
-
-  -- change trouble config
-  {
-    "folke/trouble.nvim",
-    opts = { use_diagnostic_signs = true },
+    config = true,
   },
 
   -- add symbols-outline
@@ -171,11 +151,9 @@ return {
           Struct = { icon = icons.kinds.Struct, hl = "TSType" },
           Event = { icon = icons.kinds.Event, hl = "TSType" },
           Operator = { icon = icons.kinds.Operator, hl = "TSOperator" },
-          TypeParameter = { icon = icons.kinds.TypeParameter, hl = "TSParameter" }
-        }
+          TypeParameter = { icon = icons.kinds.TypeParameter, hl = "TSParameter" },
+        },
       })
-    end
+    end,
   },
-
-
 }
