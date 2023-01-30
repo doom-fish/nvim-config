@@ -11,3 +11,5 @@ opt.autoread = true
 opt.autowriteall = true
 opt.swapfile = false
 opt.relativenumber = true
+
+opt.shm:append("W")
